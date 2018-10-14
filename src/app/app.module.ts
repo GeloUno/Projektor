@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HeroComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
