@@ -5,7 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Post, Body } from '../models/pesron';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-
+import {ErrorStateMatcher} from '@angular/material/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('form')
   form: NgForm;
   loginMess: FormGroup;
-  error = null;
+ // errors = null;
   errorEmail = false;
   errorPass = false;
   hide = true;
@@ -26,18 +26,21 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+   // console.log(this.loginMess);
+
     this.loginMess = this.initLoginForm();
     // console.log(this.logerServices.stateRouterUrl.url);
   }
   onSubmit(mess) {
-    //  console.log('mess');
-    //  console.log(mess.value);
-    // console.log(this.form);
+    //   console.log('mess');
+    //   console.log(mess);
+    //   console.log('this.form');
+    //  console.log(this.form);
 
     this.logerServices
       .postLoginUser(mess.value.emailFormControl, mess.value.paswordFormControl)
       .subscribe(a => {
-        console.log(a);
+      //  console.log(a);
         if (a['loginStatus'] === 'OK') {
           this.errorEmail = false;
           this.errorPass = false;
