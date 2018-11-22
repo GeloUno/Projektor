@@ -1,0 +1,17 @@
+.singUpBody{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  width:500px;
+
+}
+.btnSingUpRemember{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+button {
+  position: relative;
+  top: 25%;
+ // transform: translateY(-50%);
+  transform: translateX(50%);
+}

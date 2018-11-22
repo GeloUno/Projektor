@@ -1,5 +1,7 @@
 $colorBackGround: #F1F1F1;
 $colorTextHero: #343434;
+$colorTextNav: #fff;
+$colorBlue: #009FFF;
 @import url('https://fonts.googleapis.com/css?family=Lato:900');
 @import url('https://fonts.googleapis.com/css?family=Lato:900|Roboto:500');
 
@@ -34,7 +36,8 @@ $colorTextHero: #343434;
   }
 
 }
-.textHeroMore{
+
+.textHeroMore {
   color: $colorTextHero;
   font-family: 'Roboto', sans-serif;
   font-size: 40px;
@@ -42,11 +45,25 @@ $colorTextHero: #343434;
   top: -60%;
   text-align: center;
 }
-.buttonSinUp{
+
+.buttonSinUp {
   position: absolute;
   font-family: 'Roboto', sans-serif;
-left: 50%;
-transform: translate(-50%, -800%);
+  left: 50%;
+  transform: translate(-50%, -700%);
   text-align: center;
-  border-radius: 12px;
+  height: 40px;
+  width: 130px;
+  border-radius: 15px;
+  color: $colorTextNav;
+  background-color: $colorBlue;
+ // padding: 15px;
+  font-size: 20px;
+
 }
+.buttonSinUp:hover{
+  //  border-style: dashed 2px;
+  //  border-color: $colorBlue;
+    color: $colorBlue;
+    background-color: $colorTextNav;
+  }
