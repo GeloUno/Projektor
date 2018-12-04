@@ -1,70 +1,82 @@
 <!-- <div class="userLogo">
   <img src="../../assets/user.png" class="imgUser" alt="User Logo">
 </div>  -->
-
-<form [formGroup]="loginMess" (ngSubmit)="onSubmit(form)" class="example-form inForm" #form="ngForm">
-
-  <div class="singUpBody">
-    <div>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="e-mail: " [formControlName]="'emailFormControl'" name="emailFormControl" id="emailFormControl">
-        <mat-hint>wprowadz adres e-mail</mat-hint>
-        <mat-error *ngIf="!loginMess.controls.emailFormControl.valid">
-          <strong>{{'[a-z0-9._%-]+@[a-z0-9._%-]+\.[a-z]{2,}'}}</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="password: " [type]="hide ? 'password' : 'text'" name="paswordFormControl" id="paswordFormControl"
-          [formControlName]="'paswordFormControl'">
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-        <mat-hint>wprowadź hasło</mat-hint>
-
-        <mat-error *ngIf="!loginMess.controls.paswordFormControl.valid">
-          <strong>{{'[a-zA-Z0-9$@$!%*?&]{5,}$'}}</strong>
-        </mat-error>
-
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="confirm password: " [type]="hide ? 'password' : 'text'" name="paswordFormControl"
-          id="paswordFormControl" [formControlName]="'paswordFormControl'">
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-        <mat-hint>wprowadź hasło</mat-hint>
-
-        <mat-error *ngIf="!loginMess.controls.paswordFormControl.valid">
-          <strong>{{'[a-zA-Z0-9$@$!%*?&]{5,}$'}}</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div>
-
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Index Id: " [type]="hide ? 'password' : 'text'" name="paswordFormControl" id="paswordFormControl"
-          [formControlName]="'paswordFormControl'">
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-        <mat-hint>wprowadź hasło</mat-hint>
-
-        <mat-error *ngIf="!loginMess.controls.paswordFormControl.valid">
-          <strong>{{'[a-zA-Z0-9$@$!%*?&]{5,}$'}}</strong>
-        </mat-error>
-      </mat-form-field>
-      <mat-error *ngIf="this.errorEmail">
-        email <strong>nie zarejestrowny</strong>
-      </mat-error>
-      <mat-error *ngIf="this.errorPass">
-        to nie jest <strong>to hasło</strong>
-      </mat-error>
-    </div>
-    <div class="btnSingUpRemember">
-      <div>
-        <button mat-raised-button type="submit" [disabled]="(loginMess.invalid)" class="inButton">Join</button>
-      </div>
-      <div>
-        <button mat-raised-button type="submit" [disabled]="(loginMess.invalid)" class="inButton">Forgot Password</button>
-      </div>
+<div class="sBody">
+  <div class="userLogo">
+    <img src="../../assets/user.png" class="imgUser" alt="User Logo">
+    <div fxShow="true" fxHide.xs class="ForgotButtonDesktop">
+      <button mat-raised-button type="button">Forgot Password</button>
     </div>
   </div>
-</form>
+
+  <form [formGroup]="signUpMess" (ngSubmit)="onSubmit(form)" class="example-form inForm" #form="ngForm">
+
+    <div class="singUpBody">
+      <div>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="e-mail: " [formControlName]="'emailFormControl'" name="emailFormControl" id="emailFormControl">
+          <mat-hint>enter adres e-mail</mat-hint>
+          <mat-error *ngIf="!signUpMess.controls.emailFormControl.valid">
+            <!-- <strong>{{'[a-z0-9._%-]+@[a-z0-9._%-]+\.[a-z]{2,}'}}</strong> -->
+         incorrect <strong>e-mail</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password: " (change)="changeFirstPass(form)" [type]="hide ? 'password' : 'text'" name="paswordFormControl" id="paswordFormControl"
+            [formControlName]="'paswordFormControl'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-hint>enter password</mat-hint>
+
+          <mat-error *ngIf="!signUpMess.controls.paswordFormControl.valid">
+            <!-- <strong>{{'[a-zA-Z0-9$@$!%*?&]{5,}$'}}</strong> -->
+            incorrect <strong>password</strong>
+          </mat-error>
+
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password: " (change)="changeSecondPass(form)" [type]="hideRepeat ? 'password' : 'text'" name="paswordFormControlRepeat"
+            id="paswordFormControlRepeat" [formControlName]="'paswordFormControlRepeat'" (change)="checkPassworRepet()">
+          <mat-icon matSuffix  (click)="hideRepeat = !hideRepeat">{{hideRepeat ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-hint>repeat password</mat-hint>
+
+          <mat-error *ngIf="!signUpMess.controls.paswordFormControlRepeat.valid">
+              incorrect <strong>password</strong>
+          </mat-error>
+        
+        </mat-form-field>
+      </div>
+      <div>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Indeks: " type="number" name="indexId" id="indexId" [formControlName]="'indexId'">
+
+          <mat-hint>enter index id</mat-hint>
+
+          <mat-error *ngIf="!signUpMess.controls.indexId.valid">
+              incorrect <strong>idex id</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="this.errorEmail">
+          email <strong>nie zarejestrowny</strong>
+        </mat-error>
+        <mat-error *ngIf="this.errorPass">
+          to nie jest <strong>to hasło</strong>
+        </mat-error>
+      </div>
+      <div class="btnSingUpRemember">
+        <div>
+          <button mat-raised-button type="submit" [disabled]="(signUpMess.invalid)" class="JoinButton">Join</button>
+        </div>
+
+      </div>
+      <div fxShow="true" fxHide.gt-xs class="ForgotButtonPhone">
+        <button mat-raised-button type="button">Forgot Password</button>
+      </div>
+
+    </div>
+  </form>
+</div>
