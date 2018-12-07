@@ -1,0 +1,72 @@
+.sBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 500px;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 25px;
+    height: 600px;
+  }
+}
+
+.singUpBody {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.btnSingUpRemember {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 25px;
+  }
+}
+
+.imgUser {
+  display: block;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform: translate(30%, 20%);
+}
+
+.JoinButton {
+  position: relative;
+  top: 25%;
+  width: 150px;
+  // transform: translateY(-50%);
+  transform: translateX(30%);
+}
+.ForgotButtonDesktop{
+  position: relative;
+  top: 39%;
+  width: 150px;
+  // transform: translateY(-50%);
+  transform: translateX(30%);
+}
+.ForgotButtonPhone{
+  position: relative;
+  top: 40%;
+  width: 150px;
+ //  transform: translateY(-60%);
+  transform: translateX(10%);
+  @media only screen and (max-width: 600px){
+
+    top: 20%;
+    transform: translateX(30%);
+  }
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+  {
+  -webkit-appearance: none;
+  margin: 0;
+}
