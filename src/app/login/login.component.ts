@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     //   console.log(mess);
     //   console.log('this.form');
     //  console.log(this.form);
-
+// TODO: hash pass
     this.logerServices
       .postLoginUser(mess.value.emailFormControl, mess.value.paswordFormControl)
       .subscribe(a => {

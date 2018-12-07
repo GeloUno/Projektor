@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {
-  NgForm,
   FormGroup,
   FormControl,
   Validators,
@@ -17,8 +17,8 @@ export class SignupComponent implements OnInit {
   @ViewChild('form')
   form: NgForm;
   signUpMess: FormGroup;
-  firstPass; // TODO: hash pass
-  secondPass; // TODO: hash pass
+  // TODO: hash pass
+  // TODO: hash pass
   errorEmail = false;
   errorPass = false;
   hide = true;
@@ -29,6 +29,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signUpMess = this.initSignUpMess();
+    this.signUpMess.controls['paswordFormControl'].valueChanges.subscribe(a => {
+      this.signUpMess.controls[
+        'paswordFormControlRepeat'
+      ].updateValueAndValidity();
+    });
     //  console.log(this.signUpMess);
   }
   initSignUpMess() {
@@ -52,26 +57,32 @@ export class SignupComponent implements OnInit {
       ])
     });
   }
+
   onSubmit(form: NgForm) {
+    // TODO: send mess to server and hash pass
     return null;
   }
-  changeFirstPass(a: any) {
-    console.log('Changes'), (this.firstPass = a.value.paswordFormControl);
-    console.log(this.firstPass);
-  }
-  changeSecondPass(a: any) {
-    console.log('Changes'), (this.secondPass = a.value.paswordFormControl);
-    console.log(this.secondPass);
-  }
 
-  checkPassworRepet(a: FormControl): ValidationErrors {
-    console.log(a);
+  checkPassworRepet(control: FormControl): ValidationErrors {
+    if (control && control.value !== null) {
+      if (control.parent !== null && control.parent !== undefined) {
+        if (
+          control.parent.controls['paswordFormControl'].value !== null &&
+          control.parent.controls['paswordFormControlRepeat'].value !== null
+        ) {
+          if (
+            control.parent.controls['paswordFormControl'].value ===
+            control.parent.controls['paswordFormControlRepeat'].value
+          ) {
+            //   console.log(control.parent.controls);
 
-    //    if (this.firstPass === this.secondPass)
-    // {
-    return { equalPass: true };
-    //      } else {
-    //   return { equalPass: false };
-    // }
+            return null;
+          } else {
+            return { equalPass: false };
+          }
+        }
+      }
+      console.log(control.parent.controls['paswordFormControlRepeat']);
+    }
   }
 }
