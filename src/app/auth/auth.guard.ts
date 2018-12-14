@@ -6,9 +6,9 @@ import {
   Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoggerService } from '../logger/logger.service';
+import { LoggerService } from '../loggerService/logger.service';
 import { MatDialog } from '@angular/material';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../loggerUsers/signin/login.component';
 
 @Injectable({
   providedIn: 'root'

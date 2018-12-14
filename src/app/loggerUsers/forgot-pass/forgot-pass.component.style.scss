@@ -1,0 +1,50 @@
+// input:not([type]),
+// input[type=text]:not(.browser-default),
+// input[type=password]:not(.browser-default),
+// input[type=email]:not(.browser-default),
+// input[type=url]:not(.browser-default),
+// input[type=time]:not(.browser-default),
+// input[type=date]:not(.browser-default),
+// input[type=datetime]:not(.browser-default),
+// input[type=datetime-local]:not(.browser-default),
+// input[type=tel]:not(.browser-default),
+// input[type=number]:not(.browser-default),
+// input[type=search]:not(.browser-default),
+// textarea.materialize-textarea {
+//   border-bottom: none;
+// }
+.loggerBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+.userLogo{
+  //padding: 10px;
+
+}
+.imgUser{
+  display: block;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform: translate(30%,20%);
+}
+
+
+  .inForm {
+    display: grid;
+    grid-template-rows: 2fr 2fr 1fr;
+   padding: 20px;
+  }
+
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+  {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -2,7 +2,7 @@
   <div class="userLogo">
     <img src="../../assets/user.png" class="imgUser" alt="User Logo">
     <div fxShow="true" fxHide.xs class="ForgotButtonDesktop">
-      <button mat-raised-button type="button">Forgot Password</button>
+      <button mat-raised-button type="button" (click)="modalForgotePassword()">Forgot Password</button>
     </div>
   </div>
 
@@ -73,7 +73,7 @@
 
       </div>
       <div fxShow="true" fxHide.gt-xs class="ForgotButtonPhone">
-        <button mat-raised-button type="button">Forgot Password</button>
+        <button mat-raised-button type="button" (click)="modalForgotePassword()">Forgot Password</button>
       </div>
 
     </div>

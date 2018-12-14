@@ -14,8 +14,8 @@ import {
 import { NavComponent } from './nav/nav.component';
 import { HeroComponent } from './hero/hero.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './loggerUsers/signin/login.component';
+import { SignupComponent } from './loggerUsers/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material';
@@ -23,12 +23,13 @@ import { MatInputModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CourseComponent } from './course/course.component';
-import { LoggerService } from './logger/logger.service';
+import { LoggerService } from './loggerService/logger.service';
 import { HttpClientModule } from '@angular/common/http';
 import { VideoComponent } from './video/video.component';
 import { NoExistComponent } from './no-exist/no-exist.component';
 import { TestsComponent } from './tests/tests.component';
 import { AboutComponent } from './about/about.component';
+import { ForgotPassComponent } from './loggerUsers/forgot-pass/forgot-pass.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AboutComponent } from './about/about.component';
     VideoComponent,
     NoExistComponent,
     TestsComponent,
-    AboutComponent
+    AboutComponent,
+    ForgotPassComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,7 @@ import { AboutComponent } from './about/about.component';
     HttpClientModule
   ],
   exports: [MatButtonModule, MatIconModule, FlexLayoutModule],
-  entryComponents: [LoginComponent, SignupComponent],
+  entryComponents: [LoginComponent, SignupComponent,ForgotPassComponent],
   providers: [LoggerService],
   bootstrap: [AppComponent]
 })

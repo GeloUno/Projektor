@@ -7,6 +7,8 @@ import {
   ValidationErrors,
   AbstractControl
 } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { ForgotPassComponent } from '../forgot-pass/forgot-pass.component';
 
 @Component({
   selector: 'app-signup',
@@ -25,7 +27,7 @@ export class SignupComponent implements OnInit {
   hideRepeat = true;
   equalPass;
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
     this.signUpMess = this.initSignUpMess();
@@ -35,6 +37,13 @@ export class SignupComponent implements OnInit {
       ].updateValueAndValidity();
     });
     //  console.log(this.signUpMess);
+  }
+  modalForgotePassword() {
+    this.dialog.closeAll();
+    const dialog = this.dialog.open(ForgotPassComponent, {
+      width: 'auto',
+      height: 'auto'
+    });
   }
   initSignUpMess() {
     return new FormGroup({

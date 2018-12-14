@@ -1,0 +1,30 @@
+<div class="loggerBody">
+  <div class="userLogo">
+    <img src="../../assets/user.png" class="imgUser" alt="User Logo">
+  </div>
+  <form [formGroup]="forgotPassMessage" (ngSubmit)="onSubmit(form)" class="example-form inForm" #form="ngForm">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="e-mail: " [formControlName]="'emailFormControl'" name="emailFormControl" id="emailFormControl">
+
+      <mat-hint>ennter e-mail</mat-hint>
+
+      <mat-error *ngIf="!forgotPassMessage.controls.emailFormControl.valid">
+
+        incorrect <strong>e-mail</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="index id: " type="number" name="indexIdFormControl" id="indexIdFormControl"
+        [formControlName]="'indexIdFormControl'">
+      <mat-hint>enter index id</mat-hint>
+      <mat-error *ngIf="!forgotPassMessage.controls.indexIdFormControl.valid && forgotPassMessage?.controls.indexIdFormControl.patern">
+        incorrect <strong>Index Id</strong>
+    </mat-error><mat-error *ngIf="!forgotPassMessage.controls.indexIdFormControl.valid && !forgotPassMessage.controls.indexIdFormControl.patern">
+      Index Id is<strong> too short</strong>
+  </mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="(forgotPassMessage.invalid)" class="inButton">Remember Password</button>
+
+  </form>
+</div>

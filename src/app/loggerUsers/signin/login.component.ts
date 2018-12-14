@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, NgForm, Validators, FormControl } from '@angular/forms';
-import { LoggerService } from '../logger/logger.service';
+import { LoggerService } from '../../loggerService/logger.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Post, Body } from '../models/pesron';
+import { Post, Body } from '../../models/pesron';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import {ErrorStateMatcher} from '@angular/material/core';

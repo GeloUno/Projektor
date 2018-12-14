@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { SignupComponent } from '../signup/signup.component';
+import { SignupComponent } from '../loggerUsers/signup/signup.component';
 
 @Component({
   selector: 'app-hero',
