@@ -15,7 +15,7 @@ export class ForgotPassComponent implements OnInit {
   forgotPassMessage: FormGroup;
   // errors = null;
   errorEmail = false;
-  errorPass = false;
+  errorIndexId = false;
   hide = true;
   constructor(
     private logerServices: LoggerService,
