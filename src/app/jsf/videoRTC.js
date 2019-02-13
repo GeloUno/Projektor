@@ -55,11 +55,11 @@ class videoRTC {
                 iceCandidates.forEach((candidate) => peerConnection.addIceCandidate(candidate));
             }
             else if (signal.ice) {
-                iceCandidates.push(new RTCIceCandidate(signal.ice)));
+                iceCandidates.push(new RTCIceCandidate(signal.ice));
             }
         }
         setInterval(function () {
-            sockCon.send(JSON.stringify({ 'beatMessage': 'check!' }));
+            socket.send(JSON.stringify({ 'beatMessage': 'check!' }));
         }, 4000);
     }
 }
